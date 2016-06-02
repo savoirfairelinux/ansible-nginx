@@ -1,2 +1,4 @@
 - include: packages.yml
 - include: conf.yml
+- include: proxy_pass.yml
+  with_items: "{{ nginx_simple_proxy_passes }}"

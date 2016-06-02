@@ -4,3 +4,10 @@ nginx_delete_default_site: no
 # Places the contents of this variable in conf.d/override.conf
 # This is a place where we can add overrides for global http directives.
 nginx_override_conf: ""
+
+# A list of proxy_pass items to configure. A list of hashes following the structure of
+# _nginx_simple_proxy_passes_item
+nginx_simple_proxy_passes: []
+_nginx_simple_proxy_passes_item:
+  server_name: "_"
+  target_url: "http://localhost:8080/"

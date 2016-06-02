@@ -8,3 +8,8 @@
     dest: /etc/nginx/conf.d/override.conf
   when: nginx_override_conf != ''
   notify: nginx restart
+
+- name: Check if acme_well_known config is there
+  stat: path="/etc/nginx/snippets/acme_well_known.conf"
+  register: acme_well_known_config_file
+
