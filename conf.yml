@@ -1,0 +1,10 @@
+- name: Delete default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: nginx restart
+
+- name: Add nginx override config
+  copy:
+    content: "{{ nginx_override_conf }}"
+    dest: /etc/nginx/conf.d/override.conf
+  when: nginx_override_conf != ''
+  notify: nginx restart

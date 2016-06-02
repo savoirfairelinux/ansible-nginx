@@ -1,0 +1,6 @@
+# If set, we make sure to remove the "default" server supplied by debian-based distros
+# the one in sites-enabled/default
+nginx_delete_default_site: no
+# Places the contents of this variable in conf.d/override.conf
+# This is a place where we can add overrides for global http directives.
+nginx_override_conf: ""
