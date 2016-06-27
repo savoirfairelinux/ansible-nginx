@@ -1,6 +1,7 @@
 # If set, we make sure to remove the "default" server supplied by debian-based distros
 # the one in sites-enabled/default
 nginx_delete_default_site: no
+
 # Places the contents of this variable in conf.d/override.conf
 # This is a place where we can add overrides for global http directives.
 nginx_override_conf: ""
@@ -11,3 +12,7 @@ nginx_simple_proxy_passes: []
 _nginx_simple_proxy_passes_item:
   server_name: "_"
   target_url: "http://localhost:8080/"
+
+# Whether we generate a collection of useful snippets in /etc/nginx/snippets.
+# See README.
+nginx_generate_snippets: yes

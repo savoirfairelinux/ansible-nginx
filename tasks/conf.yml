@@ -13,3 +13,10 @@
   stat: path="/etc/nginx/snippets/acme_well_known.conf"
   register: acme_well_known_config_file
 
+- name: Generate useful snippets
+  template:
+    src: "{{ item }}"
+    dest: "/etc/nginx/snippets/{{ item }}"
+  when: nginx_generate_snippets
+  with_items:
+    - disallow_robots.conf

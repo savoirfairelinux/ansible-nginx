@@ -19,3 +19,11 @@ See [default variables](defaults/main.yml) for details.
   nginx_override_conf: |
     server_names_hash_bucket_size 128;
 ```
+
+## Useful snippets
+
+Unless you set `nginx_generate_snippets` to `no`, a collection of useful snippets will be placed in
+`/etc/nginx/snippets`. You can then include them in your configuration.
+
+* `disallow_robots.conf`: Defines a `/robots.txt` location that disallows all robots.
+
