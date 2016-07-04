@@ -12,6 +12,7 @@ nginx_simple_proxy_passes: []
 _nginx_simple_proxy_passes_item:
   server_name: "_"
   target_url: "http://localhost:8080/"
+  extra_conf: ""
 
 # Whether we generate a collection of useful snippets in /etc/nginx/snippets.
 # See README.
