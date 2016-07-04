@@ -13,6 +13,14 @@
   stat: path="/etc/nginx/snippets/acme_well_known.conf"
   register: acme_well_known_config_file
 
+- name: Ensure that nginx' snippets dir exists
+  file:
+    path: "/etc/nginx/snippets/"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: "0755"
+
 - name: Generate useful snippets
   template:
     src: "{{ item }}"
@@ -20,3 +28,5 @@
   when: nginx_generate_snippets
   with_items:
     - disallow_robots.conf
+    - snakeoil.conf
+
