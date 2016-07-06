@@ -1,4 +1,6 @@
 - include: packages.yml
+- include: htpasswd.yml
+  when: nginx_global_auth_realm != ''
 - include: conf.yml
 - include: proxy_pass.yml
   with_items: "{{ nginx_simple_proxy_passes }}"

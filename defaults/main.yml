@@ -17,3 +17,11 @@ _nginx_simple_proxy_passes_item:
 # Whether we generate a collection of useful snippets in /etc/nginx/snippets.
 # See README.
 nginx_generate_snippets: yes
+
+# If specified, our nginx instance will have a global authentication mechanisme with a single
+# user/password pair. This is useful for environments which we want "semi secure" (the content
+# isn't really sensitive, but we don't want the vast public to see it nonetheless) such as
+# staging environments.
+nginx_global_auth_realm: ''
+nginx_global_auth_username: ''
+nginx_global_auth_password: ''
