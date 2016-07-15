@@ -13,15 +13,30 @@ _nginx_simple_proxy_passes_item:
   server_name: "_"
   target_url: "http://localhost:8080/"
   extra_conf: ""
+  ssl_only: no
 
 # Whether we generate a collection of useful snippets in /etc/nginx/snippets.
 # See README.
 nginx_generate_snippets: yes
 
-# If specified, our nginx instance will have a global authentication mechanisme with a single
+# If specified, our nginx instance will have a global authentication mechanism with a single
 # user/password pair. This is useful for environments which we want "semi secure" (the content
 # isn't really sensitive, but we don't want the vast public to see it nonetheless) such as
 # staging environments.
 nginx_global_auth_realm: ''
 nginx_global_auth_username: ''
 nginx_global_auth_password: ''
+
+# Whether to enable a "catchall" config that acts as a fallback when the requested domain has no
+# configuration. See inidividual flags below to control features of this catchall config. This
+# catchall only listens to the port 80.
+nginx_catchall_enable: no
+
+# When enabled, make the location for ACME challenges point to nginx_catchall_acme_challenge_path.
+# This should be the path where you place the results of ACME challenges being presented to you
+# when you request a certificate.
+nginx_catchall_answers_acme_challenge: yes
+nginx_catchall_acme_challenge_path: /var/ssl/challenges
+
+# When enabled, redirects requests to the same host/path, but on HTTPS.
+nginx_catchall_redirects_to_https: yes

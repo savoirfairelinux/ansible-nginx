@@ -27,3 +27,10 @@ Unless you set `nginx_generate_snippets` to `no`, a collection of useful snippet
 
 * `disallow_robots.conf`: Defines a `/robots.txt` location that disallows all robots.
 
+## Catchall
+
+If `nginx_catchall_enable` is set, a site acting as a fallback for all hostnames will be enabled.
+This catchall config has multiple purposes, like answering [ACME][acme] challenges or redirecting
+to HTTPS.
+
+[acme]: https://github.com/hsoft/ansible-acme-nginx
