@@ -5,5 +5,5 @@
 - name: Create catchall config
   template:
     src: catchall.conf
-    dest: /etc/nginx/sites-enabled/00_catchall.conf
+    dest: /etc/nginx/sites-enabled/catchall.conf
   notify: nginx restart
