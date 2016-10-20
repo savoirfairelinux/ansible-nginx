@@ -40,3 +40,6 @@ nginx_catchall_acme_challenge_path: /var/ssl/challenges
 
 # When enabled, redirects requests to the same host/path, but on HTTPS.
 nginx_catchall_redirects_to_https: yes
+
+#When enabled, returns 444 error code on server names not defined for nginx
+nginx_catchall_empty_site_on_error: yes
