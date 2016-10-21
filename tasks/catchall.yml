@@ -1,4 +1,4 @@
-- fail: 
+- fail:
     msg: "nginx_catchall_enable needs nginx_delete_default_site to be set!"
   when: not nginx_delete_default_site
 
