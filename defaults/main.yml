@@ -43,3 +43,13 @@ nginx_catchall_redirects_to_https: yes
 
 #When enabled, returns 444 error code on server names not defined for nginx
 nginx_catchall_empty_site_on_error: yes
+
+# Allows us to generate a list of snippets with custom ssl key/certs paths.
+# nginx_custom_ssl_snippets has to be enabled.
+nginx_custom_ssl_snippets: []
+
+_nginx_custom_ssl_snippet_example:
+  - name: 'example.ssl.conf'
+    ssl_key_path: '/var/ssl/private/example.key'
+    ssl_cert_path: '/var/ssl/certs/example.crt'
+

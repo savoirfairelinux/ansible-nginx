@@ -5,6 +5,9 @@
 
 - include: conf.yml
 
+- include: snippets.yml
+  when: nginx_generate_snippets
+
 - include: proxy_pass.yml
   with_items: "{{ nginx_simple_proxy_passes }}"
 

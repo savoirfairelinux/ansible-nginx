@@ -1,0 +1,24 @@
+---
+- name: Ensure that nginx' snippets dir exists
+  file:
+    path: "/etc/nginx/snippets/"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: "0755"
+
+- name: Generate useful snippets
+  template:
+    src: "{{ item }}"
+    dest: "/etc/nginx/snippets/{{ item }}"
+  with_items:
+    - disallow_robots.conf
+    - snakeoil.conf
+
+- name: Create custom ssl snippets
+  template:
+    src: custom_ssl_snippet.conf
+    dest: "/etc/nginx/snippets/{{ snippet.name }}"
+  with_items: "{{ nginx_custom_ssl_snippets }}"
+  loop_control:
+    loop_var: snippet
