@@ -1,0 +1,7 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: "Savoir-faire Linux, Inc."
+  description: "Installs and globally configures nginx."
+  min_ansible_version: 2.2
