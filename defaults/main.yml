@@ -53,3 +53,10 @@ _nginx_custom_ssl_snippet_example:
     ssl_key_path: '/var/ssl/private/example.key'
     ssl_cert_path: '/var/ssl/certs/example.crt'
 
+# a list of domain names that nginx should handle and redirect to the main name
+nginx_redirects: []
+_nginx_redirects_item:
+  from_name: "_"
+  to_name: ""
+  ssl_only: no
+  redirect_code: 301
