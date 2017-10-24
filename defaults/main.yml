@@ -43,3 +43,11 @@ nginx_catchall_redirects_to_https: yes
 
 #When enabled, returns 444 error code on server names not defined for nginx
 nginx_catchall_empty_site_on_error: yes
+
+# a list of domain names that nginx should handle and redirect to the main name
+nginx_redirects: []
+_nginx_redirects_item:
+  from_name: "_"
+  to_name: ""
+  ssl_only: no
+  redirect_code: 301
