@@ -1,0 +1,14 @@
+- set_fact:
+    uwsgi_pass: "{{ item }}"
+
+- set_fact:
+    conf_filename: "{% if uwsgi_pass.server_name == '_' %}catchall_simple_uwsgi_pass{% else %}{{ uwsgi_pass.server_name }}{% endif %}"
+- name: Check if SSL config is there
+  stat: path="/etc/nginx/snippets/{{ conf_filename }}.ssl.conf"
+  register: ssl_config_file
+
+- name: Create nginx sites config
+  template: src=simple_uwsgi_pass.conf dest=/etc/nginx/sites-enabled/{{ conf_filename }}.conf
+  notify:
+    - nginx restart
+
