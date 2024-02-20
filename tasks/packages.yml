@@ -5,4 +5,4 @@
   with_items:
     - nginx
     - ssl-cert # needed for snakeoil certs
-    - python-passlib # needed for some nginx-related ansible actions, such as htpasswd
+    - python3-passlib # needed for some nginx-related ansible actions, such as htpasswd
