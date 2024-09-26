@@ -11,5 +11,8 @@
 - include: proxy_pass.yml
   with_items: "{{ nginx_simple_proxy_passes }}"
 
+- include: uwsgi_pass.yml
+  with_items: "{{ nginx_simple_uwsgi_passes }}"
+
 - include: catchall.yml
   when: nginx_catchall_enable

@@ -15,6 +15,17 @@ _nginx_simple_proxy_passes_item:
   extra_conf: ""
   ssl_only: no
 
+# A list of uwsgi_pass items to configure. A list of hashes following the structure of
+# _nginx_simple_uwsgi_passes_item
+nginx_simple_uwsgi_passes: []
+_nginx_simple_uwsgi_passes_item:
+  server_name: '_'
+  socket_path: ''
+  extra_conf: ''
+  static_root: ''
+  static_paths: []
+  ssl_only: no
+
 # Whether we generate a collection of useful snippets in /etc/nginx/snippets.
 # See README.
 nginx_generate_snippets: yes
