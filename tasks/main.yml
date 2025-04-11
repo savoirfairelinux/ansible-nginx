@@ -1,15 +1,15 @@
-- include: packages.yml
+- import_tasks: packages.yml
 
-- include: htpasswd.yml
+- import_tasks: htpasswd.yml
   when: nginx_global_auth_realm != ''
 
-- include: conf.yml
+- import_tasks: conf.yml
 
-- include: snippets.yml
+- import_tasks: snippets.yml
   when: nginx_generate_snippets
 
-- include: proxy_pass.yml
+- include_tasks: proxy_pass.yml
   with_items: "{{ nginx_simple_proxy_passes }}"
 
-- include: catchall.yml
+- import_tasks: catchall.yml
   when: nginx_catchall_enable
