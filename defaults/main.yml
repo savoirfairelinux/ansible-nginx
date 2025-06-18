@@ -60,3 +60,8 @@ _nginx_redirects_item:
   to_name: ""
   ssl_only: no
   redirect_code: 301
+
+nginx_ssl_enable: no
+ssl_privkey_wildcard_path: ""
+ssl_certchain_wildcard_path: ""
+ssl_snippets_config: "/etc/nginx/snippets/yourdomain.ssl.conf"

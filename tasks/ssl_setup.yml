@@ -1,0 +1,26 @@
+- name: Is wildcard SSL private key available ?
+  ansible.builtin.stat:
+    path: "{{ ssl_privkey_wildcard_path }}"
+  register: ssl_privkey_wildcard
+
+- name: Is wildcard SSL cert chain available ?
+  ansible.builtin.stat:
+    path: "{{ ssl_certchain_wildcard_path }}"
+  register: ssl_certchain_wildcard
+
+- name: Ensure ssl config file exists
+  ansible.builtin.stat:
+    path: "{{ ssl_snippets_config | default('/etc/nginx/snippets/' + php_domain_name + '.ssl.conf') }}"
+  register: snippet_config_ssl
+
+- name: Copy ssl config to the nginx snippets ssl config file
+  ansible.builtin.copy:
+    content: >
+      ssl on;
+      ssl_certificate {{ ssl_certchain_wildcard_path }};
+      ssl_certificate_key {{ ssl_privkey_wildcard_path }};
+    dest: "{{ item }}"
+    mode: '0644'
+  with_items:
+    - "{{ ssl_snippets_config }}"
+  when: ssl_privkey_wildcard.stat.exists and ssl_certchain_wildcard.stat.exists
