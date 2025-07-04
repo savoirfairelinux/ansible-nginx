@@ -13,3 +13,6 @@
 
 - import_tasks: catchall.yml
   when: nginx_catchall_enable
+
+- import_tasks: ssl_setup.yml
+  when: nginx_ssl_enable
